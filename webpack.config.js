@@ -1,7 +1,7 @@
 const
 	devMode = process.env.NODE_ENV != 'production',
 	path = require('path'),
-	dist = path.join(__dirname, 'dist')
+	dist = path.join(__dirname, 'lib', 'uk-development', 'public', 'dist'),
 	FileManagerPlugin = require('filemanager-webpack-plugin'),
 	MiniCSSExtractPlugin = require('mini-css-extract-plugin'),
 	UglifyJSPlugin = require('uglifyjs-webpack-plugin'),
@@ -12,6 +12,7 @@ const
 
 const
 	nodeDir = './node_modules',
+	publicDir = './lib/uk-development/public',
 	scriptDir = './assets/js',
 	styleDir = './assets/scss'
 ;
@@ -22,6 +23,7 @@ const paths = {
 	scripts: [
 		nodeDir + '/leaflet/dist/leaflet.js',
 		scriptDir + '/event-bus.js',
+		scriptDir + '/leaflet-maps.module.js',
 		scriptDir + '/app.js'
 	],
 
@@ -30,7 +32,7 @@ const paths = {
 	],
 
 	styles: [
-		styleDir + '/main.scss'
+		styleDir + '/styles.scss'
 	]
 };
 
@@ -88,14 +90,14 @@ module.exports = {
 		new FileManagerPlugin({
 			onStart: {
 				delete: [
-					'dist/*'
+					publicDir + '/dist/*'
 				]
 			},
 
 			onEnd: {
 				delete: [
-					'dist/styles',
-					'dist/vendor'
+					publicDir + '/dist/styles',
+					publicDir + '/dist/vendor'
 				]
 			}
 		}),

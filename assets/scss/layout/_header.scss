@@ -1,0 +1,17 @@
+header {
+	position: absolute;
+	width: 100%;
+	min-height: 50px;
+	background: $oracle;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+}
+
+.site-nav {
+	color: #fff;
+	li {
+		display: inline;
+		margin-right: 15px;
+	}
+}
