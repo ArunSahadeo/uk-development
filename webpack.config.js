@@ -12,7 +12,6 @@ const
 
 const
 	nodeDir = './node_modules',
-	publicDir = './lib/uk-development/public',
 	scriptDir = './assets/js',
 	styleDir = './assets/scss'
 ;
@@ -73,9 +72,9 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.(gif|png|jpe?g|svg)$/,
+				test: /\.(gif|png|jpe?g|svg|ttf)$/,
 				use: 'file-loader'
-			}
+			},
 		]
 	},
 
@@ -95,14 +94,17 @@ module.exports = {
 		new FileManagerPlugin({
 			onStart: {
 				delete: [
-					publicDir + '/dist/*'
+					dist + '/*'
 				]
 			},
 
 			onEnd: {
+				copy: [
+					{ source: './assets/fonts/*', destination: dist + '/fonts' }
+				],
 				delete: [
-					publicDir + '/dist/styles',
-					publicDir + '/dist/vendor'
+					dist + '/styles',
+					dist + '/vendor'
 				]
 			}
 		}),
