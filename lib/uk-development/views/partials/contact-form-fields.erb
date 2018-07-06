@@ -1,0 +1,22 @@
+<% @fields.each do |field| %>
+	<% case field[:element] 
+		when "input"
+	%>
+
+		<% if field[:label] %>
+
+		<label for="<%= field[:name] %>">
+			<%= field[:label] %>
+		</label>
+
+		<% end %>
+
+		<input
+			type="<%= field[:type] %>"
+			<%= field[:required] ? 'required' : '' %>
+			<%= field[:name] ? 'name="' + field[:name] +  '"' : '' %>
+			<%= field[:value] ? 'value="' + field[:value] + '"' : '' %>
+		/>
+
+	<% end %>
+<% end %>
