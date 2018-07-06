@@ -1,3 +1,5 @@
+import {EventBus} from './event-bus';
+
 window.addEventListener('load', loadApp);
 
 function loadApp() {

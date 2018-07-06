@@ -24,3 +24,5 @@ var EventBus = {
 
 	}
 };
+
+export {EventBus}; 

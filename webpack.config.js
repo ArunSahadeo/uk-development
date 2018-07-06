@@ -53,6 +53,11 @@ module.exports = {
 	module: {
 		rules: [
 			{
+				test: /\.js(x)?$/,
+				exclude: /node_modules/,
+				loader: 'babel-loader'
+			},
+			{
 				test: /\.s(c|a)ss$/,
 				use: [
 					MiniCSSExtractPlugin.loader,

@@ -1,3 +1,5 @@
+import {EventBus} from './event-bus';
+
 var leafletMapsModule = function () {
 
 	var self = this;
@@ -18,4 +20,8 @@ var leafletMapsModule = function () {
 		EventBus.subscribe('check-map-loaded', self.isMapLoaded);
 	};
 
+	self.init();
+
 };
+
+window.addEventListener('load', leafletMapsModule); 
