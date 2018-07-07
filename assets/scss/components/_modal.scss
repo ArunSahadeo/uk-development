@@ -8,6 +8,27 @@
 	z-index: 9999;
 	height: 100vh;
 	overflow: hidden;
+	.modal-close {
+		position: absolute;
+		font-size: 20px;
+		text-align: center;
+		background: #e2e7ea;
+		left: 96%;
+		border-radius: 50%;
+		width: 20px;
+		height: 20px;
+		bottom: 90%;
+		line-height: .8;
+		button {	
+			border: 0;
+			background: none;
+			padding: inherit;
+			outline: 0;
+			font-size: 20px;
+			position: relative;
+			top: -5%;
+		}
+	}
 	.modal-inner {
 		position: relative;
 		width: 400px;

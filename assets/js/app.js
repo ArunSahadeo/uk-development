@@ -13,9 +13,17 @@ var App = function () {
 	self.coordinates = {};
 
 	self.init = function () {
+		self.createEvents();
 		self.getVisitorLocation();
 		self.initMap();
 		self.offlineCache();
+	}
+
+	self.createEvents = function () {
+		var modalCloseBtn = document.querySelector('.modal-close');
+		modalCloseBtn.addEventListener('click', function () {
+			EventBus.publish('close-modal', modalCloseBtn);
+		});
 	}
 
 	self.getVisitorLocation = function () {
