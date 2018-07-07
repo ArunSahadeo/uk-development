@@ -3,14 +3,18 @@
 @import "helpers/variables";
 @import "helpers/fonts";
 @import "helpers/padding";
+@import "helpers/margin";
 @import "helpers/text-utilities";
 @import "layout/general";
 @import "layout/header";
+@import "layout/footer";
 
 /* Components */
 
 @import "components/map-container";
+@import "components/contact-form";
 
 /* Pages */
 
 @import "pages/about";
+@import "pages/contact";

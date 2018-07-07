@@ -7,14 +7,19 @@ function loadApp() {
 	app.init();
 }
 
-var App = function() {
+var App = function () {
 	var self = this;
 
-	self.init = function() {
+	self.init = function () {
 		self.initMap();
 	}
 
-	self.initMap = function() {
+	self.initMap = function () {
+
+		if (!document.getElementById('map')) {
+			return;
+		}
+
 		var map = L.map('map').setView([51.505, -0.09], 13),
 			tile = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
 
@@ -26,7 +31,7 @@ var App = function() {
 
 	}
 
-	self.isMapLoaded = function(isLoaded) {
+	self.isMapLoaded = function (isLoaded) {
 		EventBus.publish('check-map-loaded', isLoaded);
 	}
 }

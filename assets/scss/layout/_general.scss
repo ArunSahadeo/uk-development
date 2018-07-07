@@ -18,5 +18,9 @@ a {
 }
 
 section, main {
+	min-height: 100%;
+}
+
+section.main {
 	height: 100%;
 }
