@@ -23,7 +23,13 @@ const paths = {
 		nodeDir + '/leaflet/dist/leaflet.js',
 		scriptDir + '/event-bus.js',
 		scriptDir + '/leaflet-maps.module.js',
+		scriptDir + '/geolocation.module.js',
+		scriptDir + '/service-worker.module.js',
 		scriptDir + '/app.js'
+	],
+
+	serviceWorker: [
+		scriptDir + '/service-worker.js'
 	],
 
 	vendorCSS: [
@@ -39,6 +45,7 @@ module.exports = {
 	target: 'web',
 
 	entry: {
+		'service-worker.js': paths.serviceWorker,
 		'scripts.min.js': paths.scripts,
 		'vendor': paths.vendorCSS,
 		'styles': paths.styles
@@ -100,7 +107,8 @@ module.exports = {
 
 			onEnd: {
 				copy: [
-					{ source: './assets/fonts/*', destination: dist + '/fonts' }
+					{ source: './assets/fonts/*', destination: dist + '/fonts' },
+					{ source: './offline.html', destination: dist }
 				],
 				delete: [
 					dist + '/styles',

@@ -10,8 +10,11 @@ function loadApp() {
 var App = function () {
 	var self = this;
 
+	self.coordinates = {};
+
 	self.init = function () {
 		self.initMap();
+		self.offlineCache();
 	}
 
 	self.initMap = function () {
@@ -20,15 +23,32 @@ var App = function () {
 			return;
 		}
 
-		var map = L.map('map').setView([51.505, -0.09], 13),
-			tile = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
-
-		tile.addTo(map);
-
-		tile.on('load', function () {
-			self.isMapLoaded(true);
+		EventBus.publish('request-location');
+		EventBus.subscribe('coordinates-received', function(coordinates) {
+			self.coordinates = coordinates;
+			loadMap();
 		});
 
+		function loadMap () {
+			var map = L.map('map').setView([self.coordinates.latitude, self.coordinates.longitude], 13),
+				tile = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+
+			tile.addTo(map);
+
+			tile.on('load', function () {
+				self.isMapLoaded(true);
+			});
+		}
+
+
+	}
+
+	self.offlineCache = function () {
+		if (!navigator.serviceWorker) {
+			return;
+		}
+
+		EventBus.publish('register-service-worker');
 	}
 
 	self.isMapLoaded = function (isLoaded) {
