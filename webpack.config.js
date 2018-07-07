@@ -74,6 +74,12 @@ module.exports = {
 				],
 			},
 			{
+				test: /\.json$/,
+				exclude: /\./,
+				include: /assets\/js/,
+				loader: 'json-loader'
+			},
+			{
 				test: /\.css$/,
 				use: [
 					MiniCSSExtractPlugin.loader,
@@ -82,7 +88,6 @@ module.exports = {
 			},
 			{
 				test: /\.(gif|png|jpe?g|svg|ttf)$/,
-				//use: 'file-loader'
 				use: [{
 					loader: 'file-loader',
 					options: {

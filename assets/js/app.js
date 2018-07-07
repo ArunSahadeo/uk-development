@@ -1,4 +1,5 @@
 import {EventBus} from './event-bus';
+import data from './data.json';
 
 window.addEventListener('load', loadApp);
 
@@ -56,10 +57,19 @@ var App = function () {
 			tile.on('load', function () {
 				self.isMapLoaded(true);
 			});
+
+			self.addCompanyMarkers(map);
 		}
-
-
 	}
+
+	self.addCompanyMarkers = function (map) {
+		
+		Array.from(data).forEach(function (company, index) {
+			let companyMarker = L.marker([company.coordinates[0], company.coordinates[1]]);
+
+			companyMarker.addTo(map);
+		});
+	};
 
 	self.offlineCache = function () {
 		if (!navigator.serviceWorker) {
