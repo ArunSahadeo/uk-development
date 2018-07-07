@@ -13,8 +13,13 @@ var App = function () {
 	self.coordinates = {};
 
 	self.init = function () {
+		self.getVisitorLocation();
 		self.initMap();
 		self.offlineCache();
+	}
+
+	self.getVisitorLocation = function () {
+		EventBus.publish('check-coordinates', remoteIP);
 	}
 
 	self.initMap = function () {

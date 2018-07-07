@@ -23,6 +23,7 @@ const paths = {
 		nodeDir + '/leaflet/dist/leaflet.js',
 		scriptDir + '/event-bus.js',
 		scriptDir + '/leaflet-maps.module.js',
+		scriptDir + '/geocoding.module.js',
 		scriptDir + '/geolocation.module.js',
 		scriptDir + '/service-worker.module.js',
 		scriptDir + '/app.js'

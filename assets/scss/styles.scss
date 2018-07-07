@@ -5,6 +5,7 @@
 @import "helpers/padding";
 @import "helpers/margin";
 @import "helpers/text-utilities";
+@import "helpers/general-utilities";
 @import "layout/general";
 @import "layout/header";
 @import "layout/footer";
@@ -13,6 +14,7 @@
 
 @import "components/map-container";
 @import "components/contact-form";
+@import "components/modal";
 
 /* Pages */
 

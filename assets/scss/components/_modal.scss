@@ -1,0 +1,19 @@
+.modal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(#000, .5);
+	z-index: 9999;
+	height: 100vh;
+	overflow: hidden;
+	.modal-inner {
+		position: relative;
+		width: 400px;
+		padding: 20px;
+		margin: 25% auto;
+		z-index: 9999;
+		background: rgba(14, 56, 104, .95);
+	}
+}

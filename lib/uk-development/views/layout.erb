@@ -9,6 +9,9 @@
     </head>
 <body>
 	<%=	erb :'partials/header' %>
+	<div class="modal hide" id="foreign-modal">
+		<%= erb :'partials/foreign-modal' %>
+	</div>
 	<%= yield %>
 	<%= erb :'partials/footer' %>
 </body>
