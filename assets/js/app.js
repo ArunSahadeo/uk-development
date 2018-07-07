@@ -30,8 +30,13 @@ var App = function () {
 		});
 
 		function loadMap () {
-			var map = L.map('map').setView([self.coordinates.latitude, self.coordinates.longitude], 13),
-				tile = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+			var map = L.map('map').setView([self.coordinates.latitude, self.coordinates.longitude], 13);
+
+			var currentPositionMarker = L.marker([self.coordinates.latitude, self.coordinates.longitude]);
+
+			var tile = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+
+			currentPositionMarker.addTo(map);
 
 			tile.addTo(map);
 

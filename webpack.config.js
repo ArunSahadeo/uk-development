@@ -80,7 +80,13 @@ module.exports = {
 			},
 			{
 				test: /\.(gif|png|jpe?g|svg|ttf)$/,
-				use: 'file-loader'
+				//use: 'file-loader'
+				use: [{
+					loader: 'file-loader',
+					options: {
+						name: '[name].[ext]'
+					}
+				}]
 			},
 		]
 	},
