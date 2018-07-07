@@ -6,6 +6,9 @@
 		<% if field[:label] %>
 
 		<label for="<%= field[:name] %>">
+			<% if field[:required] %>
+			&ast;
+			<% end %>
 			<%= field[:label] %>
 		</label>
 
