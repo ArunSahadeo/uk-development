@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./node_modules/webpack/bin/webpack.js"
+    "start": "echo \"Success\"",
+	"heroku-prebuild": "cp assets/js/config.sample.js assets/js/config.js"
   },
   "keywords": [
 	"Leaflet maps"
