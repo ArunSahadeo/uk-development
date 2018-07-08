@@ -18,7 +18,7 @@ var geocodingModule = function () {
 	self.checkCoordinates = function (remoteIP) {
 
 		if (remoteIP === '127.0.0.1') {
-			sessionStorage.setItem('country', host === 'localhost' ? 'United Kingdom' : 'United States');
+			sessionStorage.setItem('country', host === 'localhost' ? 'United Kingdom' : (Config.country || 'United States'));
 		}
 
 		if (sessionStorage.getItem('country')) {
