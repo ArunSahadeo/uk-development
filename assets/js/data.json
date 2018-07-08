@@ -1,6 +1,7 @@
 [
 	{
 		"name": "Wirebox Consultancy",
+		"county": "Hertfordshire",
 		"coordinates": [
 			"51.644588",
 			"-0.4258351"
@@ -9,6 +10,12 @@
 			"WordPress",
 			"PHP",
 			"Laravel"
+		],
+		"content": [
+			"Wirebox is a boutique development agency based in Watford, a town situated about 15 miles northwest of central London.",
+			"Although keen on experimenting with new technologies for client work, they often focus their efforts on tried and tested technologies such as Bootstrap CSS and jQuery.",
+			"Their development team having opted for PHP as their primary server-side language, the sites Wirebox builds for clients can range from static HTML, to greenfield WordPress projects and bespoke Laravel web and intranet applications.",
+			"Firmly entrenched in the waterfall model, they make use of the latest testing technologies like Browserstack and Selenium to ensure a consistent cross-platform experience."
 		]
 	}
 ]

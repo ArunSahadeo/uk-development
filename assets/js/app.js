@@ -1,5 +1,6 @@
 import {EventBus} from './event-bus';
 import data from './data.json';
+import {Regions} from './regions';
 
 window.addEventListener('load', loadApp);
 
@@ -64,12 +65,24 @@ var App = function () {
 	};
 
 	self.addCompanyMarkers = function (map) {
+
+		let eastEnglandFirms = L.layerGroup();
 		
 		Array.from(data).forEach(function (company, index) {
 			let companyMarker = L.marker([company.coordinates[0], company.coordinates[1]]);
 
-			companyMarker.addTo(map);
+			let popupHTML = companyMarker.bindPopup(company.content.join('<br />'));
+
+			companyMarker.bindPopup(popupHTML);
+
+			if (Regions['East of England'].indexOf(company.county) > -1) {
+				eastEnglandFirms.addLayer(companyMarker);
+			}
 		});
+
+		eastEnglandFirms.addTo(map);
+
+		console.log(eastEnglandFirms);
 	};
 
 	self.offlineCache = function () {

@@ -1,3 +1,17 @@
 .map-container {
 	height: 100%;
 }
+
+.map-filters {
+	background: $oracle;
+	position: absolute;
+	right: 0;
+	top: 5%;
+	z-index: 9999;
+	margin-right: 15px;
+	min-width: 65px;
+	text-align: center;
+	color: #fff;
+	font-weight: 600;
+	text-transform: uppercase;
+}
