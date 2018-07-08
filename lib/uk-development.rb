@@ -1,5 +1,6 @@
 # Helper modules
 
+require 'date'
 require 'json'
 require 'sinatra/base'
 

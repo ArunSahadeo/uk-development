@@ -1,12 +1,18 @@
 module UKDevelopment
 	class App < Sinatra::Base
+
+		configure do
+			set :contactEmail, 'arunjamessahadeo@gmail.com'
+
+			time = Time.new
+			set :year, time.year
+		end
 		
 		get '/' do
 			erb :home
 		end
 
 		get '/about' do
-			@contactEmail = 'arunjamessahadeo@gmail.com'
 			erb :about
 		end
 
