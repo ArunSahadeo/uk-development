@@ -68,7 +68,9 @@ var App = function () {
 
 			
 
-		var currentPositionMarker = L.marker([self.coordinates.latitude, self.coordinates.longitude]);
+		var currentPositionMarker = L.marker([self.coordinates.latitude, self.coordinates.longitude], {
+			title: 'This is your current location'
+		});
 
 		var tile = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
 
@@ -88,7 +90,9 @@ var App = function () {
 		let eastEnglandFirms = L.layerGroup();
 		
 		Array.from(data).forEach(function (company, index) {
-			let companyMarker = L.marker([company.coordinates[0], company.coordinates[1]]);
+			let companyMarker = L.marker([company.coordinates[0], company.coordinates[1]], {
+				title: company.name
+			});
 
 			Array.from(company.content).forEach(function (line, index) {
 				company.content[index] = '<p>' + line + '</p>';
