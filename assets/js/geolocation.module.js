@@ -10,7 +10,7 @@ var geolocationModule = function () {
 		self.bindEvents();
 	};
 
-	self.requestLocation = function () {
+	self.requestLocation = function (country) {
 		if (!navigator.geolocation) {
 			self.setLocation({
 				latitude: 51.505,
@@ -19,6 +19,15 @@ var geolocationModule = function () {
 
 			return;
 		};
+
+		if (country !== 'United Kingdom') {
+			self.setLocation({
+				latitude: 51.505,
+				longitude: -0.09
+			});
+
+			return;
+		}
 
 		navigator.geolocation.getCurrentPosition(function (position) {
 			self.setLocation({
@@ -41,6 +50,13 @@ var geolocationModule = function () {
 
 	self.setLocation = function (value) {
 		self.coordinates = value;
+
+		if (remoteIP === '127.0.0.1' && host !== 'localhost') {
+			window.setTimeout(function () {
+				EventBus.publish('coordinates-received', self.coordinates);
+			}, 10);
+		}
+
 		EventBus.publish('coordinates-received', self.coordinates);
 	};
 

@@ -15,7 +15,6 @@ var App = function () {
 
 	self.init = function () {
 		self.createEvents();
-		self.getVisitorLocation();
 		self.initMap();
 		self.offlineCache();
 	}
@@ -37,13 +36,16 @@ var App = function () {
 			return;
 		}
 
-		EventBus.publish('request-location');
+		self.getVisitorLocation();
+
 		EventBus.subscribe('coordinates-received', function(coordinates) {
 			self.coordinates = coordinates;
-			loadMap();
+			self.loadMap();
 		});
 
-		function loadMap () {
+	};
+
+	self.loadMap = function () {
 			var map = L.map('map').setView([self.coordinates.latitude, self.coordinates.longitude], 13);
 
 			var currentPositionMarker = L.marker([self.coordinates.latitude, self.coordinates.longitude]);
@@ -59,8 +61,7 @@ var App = function () {
 			});
 
 			self.addCompanyMarkers(map);
-		}
-	}
+	};
 
 	self.addCompanyMarkers = function (map) {
 		

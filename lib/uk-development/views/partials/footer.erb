@@ -1,6 +1,7 @@
 <footer>
 	<script type="text/javascript">
-		var remoteIP = "<%= @env['REMOTE_ADDR'] == '127.0.0.1' ? '151.101.192.81' : @env['REMOTE_ADDR'] %>";
+		var host = "<%= request.host %>";
+		var remoteIP = "<%= @env['REMOTE_ADDR'] %>";
 	</script>
 	<script async defer src="/dist/scripts.min.js"></script>
 

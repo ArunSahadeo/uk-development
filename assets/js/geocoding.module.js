@@ -16,8 +16,14 @@ var geocodingModule = function () {
 	*/
 
 	self.checkCoordinates = function (remoteIP) {
+
+		if (remoteIP === '127.0.0.1') {
+			sessionStorage.setItem('country', host === 'localhost' ? 'United Kingdom' : 'United States');
+		}
+
 		if (sessionStorage.getItem('country')) {
 			console.log('Country already set!');
+			self.foreignModal(sessionStorage.getItem('country'));
 			return;
 		}
 
@@ -57,11 +63,14 @@ var geocodingModule = function () {
 
 	self.foreignModal = function (country) {
 		if (country === 'United Kingdom') {
+			EventBus.publish('request-location', country);
 			return;
 		}
 
 		const foreignModal = document.querySelector('div#foreign-modal');
 		foreignModal.classList.remove('hide');
+
+		EventBus.publish('request-location', country);
 	};
 
 	self.bindEvents = function () {
