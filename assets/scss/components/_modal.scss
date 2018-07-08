@@ -1,5 +1,5 @@
 .modal {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	bottom: 0;
@@ -7,17 +7,17 @@
 	background: rgba(#000, .5);
 	z-index: 9999;
 	height: 100vh;
-	overflow: hidden;
+	overflow-x: hidden;
 	.modal-close {
 		position: absolute;
 		font-size: 20px;
 		text-align: center;
 		background: #e2e7ea;
-		left: 96%;
+		left: 97%;
 		border-radius: 50%;
 		width: 20px;
 		height: 20px;
-		bottom: 90%;
+		bottom: 95%;
 		line-height: .8;
 		button {	
 			border: 0;
@@ -33,7 +33,7 @@
 		position: relative;
 		width: 400px;
 		padding: 20px;
-		margin: 25% auto;
+		margin: 15% auto;
 		z-index: 9999;
 		background: rgba(14, 56, 104, .95);
 	}

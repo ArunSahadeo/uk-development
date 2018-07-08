@@ -70,6 +70,8 @@ var geocodingModule = function () {
 		const foreignModal = document.querySelector('div#foreign-modal');
 		foreignModal.classList.remove('hide');
 
+		document.body.classList.add('overflow-hidden');
+
 		EventBus.publish('request-location', country);
 	};
 
