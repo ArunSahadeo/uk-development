@@ -14,6 +14,8 @@ var App = function () {
 
 	self.coordinates = {};
 
+	self.layers = {};
+
 	self.init = function () {
 		self.createEvents();
 		self.initMap();
@@ -47,21 +49,38 @@ var App = function () {
 	};
 
 	self.loadMap = function () {
-			var map = L.map('map').setView([self.coordinates.latitude, self.coordinates.longitude], 13);
 
-			var currentPositionMarker = L.marker([self.coordinates.latitude, self.coordinates.longitude]);
+		self.layers.grayscale = L.tileLayer('https://maps.omniscale.net/v2/demo/style.grayscale/{z}/{x}/{y}.png', {
+			minZoom: 3,
+			maxZoom: 19
+		});
+		
+		self.layers.streets = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			minZoom: 3,
+			maxZoom: 19
+		});
 
-			var tile = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+		var map = L.map('map', {
+			layers: [self.layers.grayscale, self.layers.streets]
+		});
+			
+		map.setView([self.coordinates.latitude, self.coordinates.longitude], 13);
 
-			currentPositionMarker.addTo(map);
+			
 
-			tile.addTo(map);
+		var currentPositionMarker = L.marker([self.coordinates.latitude, self.coordinates.longitude]);
 
-			tile.on('load', function () {
-				self.isMapLoaded(true);
-			});
+		var tile = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
 
-			self.addCompanyMarkers(map);
+		currentPositionMarker.addTo(map);
+
+		tile.addTo(map);
+
+		tile.on('load', function () {
+			self.isMapLoaded(true);
+		});
+
+		self.addCompanyMarkers(map);
 	};
 
 	self.addCompanyMarkers = function (map) {
@@ -83,10 +102,24 @@ var App = function () {
 				eastEnglandFirms.addLayer(companyMarker);
 			}
 		});
+		
+		const
+			grayscale = L.tileLayer('https://maps.omniscale.net/v2/demo/style.grayscale/{z}/{x}/{y}.png'),
+			streets = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+		;
+
+		const baseLayers = {
+			"Grayscale": grayscale,
+			"Streets": streets
+		};
+
+		const mapRegions = {
+			"East of England": eastEnglandFirms
+		};
+
+		L.control.layers(baseLayers, mapRegions).addTo(map);
 
 		eastEnglandFirms.addTo(map);
-
-		console.log(eastEnglandFirms);
 	};
 
 	self.offlineCache = function () {
