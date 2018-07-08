@@ -66,9 +66,14 @@ var App = function () {
 			
 		map.setView([self.coordinates.latitude, self.coordinates.longitude], 13);
 
-			
+		var redMarkerIcon = L.icon({
+			iconUrl: '/dist/red-marker.png',
+
+			iconSize: [25, 41]
+		});
 
 		var currentPositionMarker = L.marker([self.coordinates.latitude, self.coordinates.longitude], {
+			icon: redMarkerIcon,
 			title: 'This is your current location'
 		});
 
@@ -87,7 +92,8 @@ var App = function () {
 
 	self.addCompanyMarkers = function (map) {
 
-		let eastEnglandFirms = L.layerGroup();
+		let eastEnglandFirms = L.layerGroup(),
+			greaterLondonFirms = L.layerGroup();
 		
 		Array.from(data).forEach(function (company, index) {
 			let companyMarker = L.marker([company.coordinates[0], company.coordinates[1]], {
@@ -102,9 +108,16 @@ var App = function () {
 
 			companyMarker.bindPopup(popupHTML);
 
-			if (Regions['East of England'].indexOf(company.county) > -1) {
-				eastEnglandFirms.addLayer(companyMarker);
+			switch(true) {
+				case Regions['East of England'].indexOf(company.county) > -1:
+					eastEnglandFirms.addLayer(companyMarker);
+				break;
+
+				case Regions['Greater London'].indexOf(company.county) > -1:
+					greaterLondonFirms.addLayer(companyMarker);
+				break;
 			}
+
 		});
 		
 		const
@@ -118,12 +131,15 @@ var App = function () {
 		};
 
 		const mapRegions = {
-			"East of England": eastEnglandFirms
+			"East of England": eastEnglandFirms,
+			"Greater London": greaterLondonFirms
 		};
 
 		L.control.layers(baseLayers, mapRegions).addTo(map);
 
 		eastEnglandFirms.addTo(map);
+		greaterLondonFirms.addTo(map);
+
 	};
 
 	self.offlineCache = function () {

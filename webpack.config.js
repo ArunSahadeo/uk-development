@@ -121,7 +121,8 @@ module.exports = {
 			onEnd: {
 				copy: [
 					{ source: './assets/fonts/*', destination: dist + '/fonts' },
-					{ source: './offline.html', destination: dist }
+					{ source: './offline.html', destination: dist },
+					{ source: './assets/img/*', destination: dist }
 				],
 				delete: [
 					dist + '/styles',

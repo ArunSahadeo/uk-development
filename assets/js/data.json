@@ -17,5 +17,81 @@
 			"Their development team having opted for PHP as their primary server-side language, the sites Wirebox builds for clients can range from static HTML, to greenfield WordPress projects and bespoke Laravel web and intranet applications.",
 			"Firmly entrenched in the waterfall model, they make use of the latest testing technologies like Browserstack and Selenium to ensure a consistent cross-platform experience."
 		]
+	},
+
+	{
+		"name": "BitZesty",
+		"county": "Middlesex",
+		"coordinates": [
+			"51.5331867",
+			"-0.1077316"
+		],
+		"services": [
+			"Ruby on Rails"
+		],
+		"content": [
+			"BitZesty bill themselves as a 'multi-disciplinary team of <strong>user experience</strong> designers, <strong>Ruby on Rails</strong> developers and <strong>lean</strong> and <strong>agile</strong> specialists'.",
+			"Other than Ruby on Rails, they make use of additional open-source technologies including MongoDB, MySQL and PostgreSQL, Node.js and Ember.js"
+		]
+	},
+
+	{
+		"name": "MintTwist",
+		"county": "Middlesex",
+		"coordinates": [
+			"51.5331867",
+			"-0.1077316"
+		],
+		"services": [
+			"PPC",
+			"Digital marketing",
+			"SEO",
+			"Content marketing",
+			"Web design and development",
+			"Mobile app design and development"
+		],
+		"content": [
+			"MintTwist has been a leading digital agency in Southwark for over 10 years",
+			"They claim to be impartial when choosing the technology stack for a client's website project, naming PHP, .NET and Java as a few examples of different languages they have used to deliver website projects for clients.",
+			"They also claim to have a custom built CMS that they have used to roll out website solutions for clients, and to have worked with open-source solutions such as Zend, Umbraco, Sitecore, WordPress and Laravel to meet bespoke client requirements."
+		]
+	},
+
+	{
+		"name": "Didgeroo London",
+		"county": "Middlesex",
+		"coordinates": [
+			"51.5242873",
+			"-0.0865348"
+		],
+		"services": [
+			"WordPress",
+			"Magento",
+			"Symfony",
+			"Web hosting"
+		],
+		"content": [
+			"Didgeroo London, a digital development studio based in Shoreditch, maintains in their strapline that they help creative agencies to build secure WordPress sites.",
+			"Where possible, they prefer to use open-source technologies, such as WordPress, Magento, CakePHP and Symfony 2.",
+			"They also offer Managed Hosting for WordPress sites through WP Engine and round the clock support for any website managed in this way, including off site backups, malware scanning and Wordpress security upgrades."
+		]
+	},
+
+	{
+		"name": "Gravity Software Ltd.",
+		"county": "Middlesex",
+		"coordinates": [
+			"51.5080972",
+			"-0.1074418"
+		],
+		"services": [
+			"Ecommerce websites",
+			"WordPress",
+			"Magento"
+		],
+		"content": [
+			"Web development agency based in London's South Bank, largely involved in building ecommerce applications.",
+			"Outside their bespoke client solutions, they leverage WordPress and Magento for many client projects, whether the project involves custom Magento extension development, migrating a legacy database to a WordPress install, etc."
+		]
 	}
 ]
