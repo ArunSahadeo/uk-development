@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-	"start": "node index.js"
+    "start": "webpack"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+	"Leaflet maps"
+  ],
+  "author": "Arun Sahadeo",
+  "license": "GPL3",
   "dependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
@@ -18,6 +20,7 @@
     "exports-loader": "^0.7.0",
     "file-loader": "^1.1.11",
     "filemanager-webpack-plugin": "^1.0.26",
+    "json-loader": "^0.5.7",
     "leaflet": "^1.3.1",
     "mini-css-extract-plugin": "^0.4.1",
     "node-sass": "^4.9.0",
