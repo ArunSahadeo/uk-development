@@ -71,7 +71,11 @@ var App = function () {
 		Array.from(data).forEach(function (company, index) {
 			let companyMarker = L.marker([company.coordinates[0], company.coordinates[1]]);
 
-			let popupHTML = companyMarker.bindPopup(company.content.join('<br />'));
+			Array.from(company.content).forEach(function (line, index) {
+				company.content[index] = '<p>' + line + '</p>';
+			});
+
+			let popupHTML = company.content.join('');
 
 			companyMarker.bindPopup(popupHTML);
 
