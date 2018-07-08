@@ -13,10 +13,11 @@ var clickEventsModule = function () {
 
 		if (modal.classList.contains('modal')) {
 			modal.classList.add('hide');
+			sessionStorage.setItem('modal-shown', true);
 		}
 
-		if (document.body.classList.contains('overflow-hidden')) {
-			document.body.classList.remove('overflow-hidden');
+		if (document.body.classList.contains('modal-showing')) {
+			document.body.classList.remove('modal-showing');
 		}
 	};
 

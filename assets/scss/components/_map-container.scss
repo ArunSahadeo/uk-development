@@ -15,3 +15,9 @@
 	font-weight: 600;
 	text-transform: uppercase;
 }
+
+.modal-showing {
+	.map-filters {
+		z-index: -9999;
+	}
+}

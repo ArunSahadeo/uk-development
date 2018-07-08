@@ -62,7 +62,7 @@ var geocodingModule = function () {
 	}
 
 	self.foreignModal = function (country) {
-		if (country === 'United Kingdom') {
+		if (country === 'United Kingdom' || sessionStorage.getItem('modal-shown')) {
 			EventBus.publish('request-location', country);
 			return;
 		}
@@ -70,7 +70,7 @@ var geocodingModule = function () {
 		const foreignModal = document.querySelector('div#foreign-modal');
 		foreignModal.classList.remove('hide');
 
-		document.body.classList.add('overflow-hidden');
+		document.body.classList.add('modal-showing');
 
 		EventBus.publish('request-location', country);
 	};
