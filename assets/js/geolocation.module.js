@@ -40,6 +40,12 @@ var geolocationModule = function () {
 					latitude: 51.505,
 					longitude: -0.09
 				});
+			} else if (error.code === error.POSITION_UNAVAILABLE) {
+				alert('Your position doesn\'t seem to be available at the moment. Using fallback coordinates instead.');
+				self.setLocation({
+					latitude: 51.505,
+					longitude: -0.09
+				});
 			} else {
 				console.error(error);
 			}
