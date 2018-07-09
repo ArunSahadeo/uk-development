@@ -122,7 +122,8 @@ module.exports = {
 				copy: [
 					{ source: './assets/fonts/*', destination: dist + '/fonts' },
 					{ source: './offline.html', destination: dist },
-					{ source: './assets/img/*', destination: dist }
+                    { source: './assets/img/*', destination: dist },
+                    { source: nodeDir + '/leaflet/dist/images/', destination: dist }
 				],
 				delete: [
 					dist + '/styles',
