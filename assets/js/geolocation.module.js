@@ -40,6 +40,8 @@ var geolocationModule = function () {
 					latitude: 51.505,
 					longitude: -0.09
 				});
+			} else {
+				console.error(error);
 			}
 		});
 	};

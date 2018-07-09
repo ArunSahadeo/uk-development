@@ -140,6 +140,12 @@ var App = function () {
 		eastEnglandFirms.addTo(map);
 		greaterLondonFirms.addTo(map);
 
+		map.on('load', self.mapLoaded());
+
+	};
+
+	self.mapLoaded = function () {
+		sessionStorage.setItem('map-loaded', true);
 	};
 
 	self.offlineCache = function () {
