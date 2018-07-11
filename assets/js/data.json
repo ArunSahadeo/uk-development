@@ -1,6 +1,7 @@
 [
 	{
-		"name": "Wirebox Consultancy",
+		"long_name": "Wirebox Consultancy",
+		"short_name": "Wirebox",
 		"county": "Hertfordshire",
 		"coordinates": [
 			"51.644588",
@@ -20,7 +21,7 @@
 	},
 
 	{
-		"name": "BitZesty",
+		"long_name": "BitZesty",
 		"county": "Middlesex",
 		"coordinates": [
 			"51.5331867",
@@ -36,7 +37,7 @@
 	},
 
 	{
-		"name": "MintTwist",
+		"long_name": "MintTwist",
 		"county": "Middlesex",
 		"coordinates": [
 			"51.5331867",
@@ -58,7 +59,8 @@
 	},
 
 	{
-		"name": "Didgeroo London",
+		"long_name": "Didgeroo London",
+		"short_name": "Didgeroo",
 		"county": "Middlesex",
 		"coordinates": [
 			"51.5242873",
@@ -78,7 +80,7 @@
 	},
 
 	{
-		"name": "Gravity Software Ltd.",
+		"long_name": "Gravity Software Ltd.",
 		"county": "Middlesex",
 		"coordinates": [
 			"51.5080972",

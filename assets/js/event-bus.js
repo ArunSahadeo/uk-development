@@ -25,4 +25,4 @@ var EventBus = {
 	}
 };
 
-export {EventBus}; 
+export default EventBus; 

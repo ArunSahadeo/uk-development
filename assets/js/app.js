@@ -1,6 +1,6 @@
-import {EventBus} from './event-bus';
+import EventBus from './event-bus';
 import data from './data.json';
-import {Regions} from './regions';
+import Regions from './regions';
 
 window.addEventListener('load', loadApp);
 
@@ -42,6 +42,9 @@ var App = function () {
 		self.getVisitorLocation();
 
 		EventBus.subscribe('coordinates-received', function(coordinates) {
+			if (localStorage.getItem('map-coordinates')) {
+				coordinates = JSON.parse(localStorage.getItem('map-coordinates'));
+			}
 			self.coordinates = coordinates;
 			self.loadMap();
 		});
@@ -93,20 +96,39 @@ var App = function () {
 	self.addCompanyMarkers = function (map) {
 
 		let eastEnglandFirms = L.layerGroup(),
-			greaterLondonFirms = L.layerGroup();
+			greaterLondonFirms = L.layerGroup(),
+			openSourceFirms = L.layerGroup();
 		
 		Array.from(data).forEach(function (company, index) {
+
 			let companyMarker = L.marker([company.coordinates[0], company.coordinates[1]], {
-				title: company.name
+				title: company.long_name || company.short_name
 			});
+
+			let popupHTML = '<h2>About ' + (company.long_name || company.short_name) + '</h2>';
 
 			Array.from(company.content).forEach(function (line, index) {
 				company.content[index] = '<p>' + line + '</p>';
 			});
 
-			let popupHTML = company.content.join('');
+			popupHTML += company.content.join('');
 
 			companyMarker.bindPopup(popupHTML);
+
+			EventBus.publish('does-open-source', {company, index});
+
+			EventBus.subscribe('is-open-source', function(doesOS) {
+				company.open_source = doesOS ? true : false;
+
+				let companyItemName = String('company-' + index + '-does-os');
+				if (!localStorage.getItem(companyItemName)) {
+					localStorage.setItem(companyItemName, doesOS ? true : false);
+				}
+			});
+				
+			if (company.open_source) {
+				openSourceFirms.addLayer(companyMarker);
+			}
 
 			switch(true) {
 				case Regions['East of England'].indexOf(company.county) > -1:
@@ -132,13 +154,15 @@ var App = function () {
 
 		const mapRegions = {
 			"East of England": eastEnglandFirms,
-			"Greater London": greaterLondonFirms
+			"Greater London": greaterLondonFirms,
+			"Open source": openSourceFirms
 		};
 
 		L.control.layers(baseLayers, mapRegions).addTo(map);
 
 		eastEnglandFirms.addTo(map);
 		greaterLondonFirms.addTo(map);
+		openSourceFirms.addTo(map);
 
 		map.on('load', self.mapLoaded());
 

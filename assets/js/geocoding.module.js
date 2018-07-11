@@ -1,5 +1,5 @@
-import {Config} from './config';
-import {EventBus} from './event-bus';
+import Config from './config';
+import EventBus from './event-bus';
 
 var geocodingModule = function () {
 

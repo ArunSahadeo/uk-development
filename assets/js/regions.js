@@ -1,4 +1,4 @@
-export const Regions = {
+const Regions = {
 	'East of England': [
 		'Hertfordshire'
 	],
@@ -7,3 +7,5 @@ export const Regions = {
 		'Middlesex'
 	]
 };
+
+export default Regions;

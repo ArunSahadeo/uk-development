@@ -1,4 +1,4 @@
-import {EventBus} from './event-bus';
+import EventBus from './event-bus';
 
 var geolocationModule = function () {
 
@@ -26,6 +26,15 @@ var geolocationModule = function () {
 				longitude: -0.09
 			});
 
+			return;
+		}
+
+		if (localStorage.getItem('map-coordinates')) {
+			let position = JSON.parse(localStorage.getItem('map-coordinates'));
+			self.setLocation({
+				latitude: position.latitude,
+				longitude: position.longitude
+			});
 			return;
 		}
 
@@ -59,13 +68,14 @@ var geolocationModule = function () {
 	self.setLocation = function (value) {
 		self.coordinates = value;
 
-		if (remoteIP === '127.0.0.1' && host !== 'localhost') {
-			window.setTimeout(function () {
-				EventBus.publish('coordinates-received', self.coordinates);
-			}, 10);
+		if (!localStorage.getItem('map-coordinates')) {
+			localStorage.setItem('map-coordinates', JSON.stringify(self.coordinates));
 		}
 
-		EventBus.publish('coordinates-received', self.coordinates);
+		window.setTimeout(function () {
+			EventBus.publish('coordinates-received', self.coordinates);
+		}, 1);
+
 	};
 
 	self.bindEvents = function () {
