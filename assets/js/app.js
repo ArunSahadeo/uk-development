@@ -125,9 +125,12 @@ var App = function () {
 					localStorage.setItem(companyItemName, doesOS ? true : false);
 				}
 			});
+
+			let isOpenSource = localStorage.getItem('company-' + index + '-does-os');
 				
-			if (company.open_source) {
+			if (company.open_source || isOpenSource) {
 				openSourceFirms.addLayer(companyMarker);
+				console.log(openSourceFirms);
 			}
 
 			switch(true) {
