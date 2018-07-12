@@ -33,11 +33,10 @@ var geocodingModule = function () {
 	self.callAPI = function (remoteIP) {
 		let 
 			ajax = new XMLHttpRequest(),
-			alnumPattern = /^[0-9a-zA-Z]+$/,
 			queryParams = String(remoteIP + '?access_key=' + Config.IPStackAPIKey)
 		;
 
-		if (!Config.IPStackAPIKey.match(alnumPattern)) {
+        if (!Config.IPStackAPIKey || !Config.IPStackAPIKey.match(/^[0-9a-zA-Z]+$/)) {
 			return;
 		}
 
