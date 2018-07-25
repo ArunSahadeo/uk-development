@@ -6,11 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "echo \"Success\"",
-	"heroku-prebuild": "cp assets/js/config.sample.js assets/js/config.js",
-	"heroku-postbuild": "webpack"
+    "heroku-prebuild": "cp assets/js/config.sample.js assets/js/config.js",
+    "heroku-postbuild": "webpack"
   },
   "keywords": [
-	"Leaflet maps"
+    "Leaflet maps"
   ],
   "author": "Arun Sahadeo",
   "license": "GPL3",
@@ -29,10 +29,10 @@
     "optimize-css-assets-webpack-plugin": "^4.0.3",
     "postcss-loader": "^2.1.5",
     "sass-loader": "^7.0.3",
-    "style-loader": "^0.21.0",
-    "webpack": "^4.14.0"
+    "style-loader": "^0.21.0"
   },
   "devDependencies": {
-    "webpack-cli": "^3.0.8"
+    "webpack": "^4.16.2",
+    "webpack-cli": "^3.1.0"
   }
 }
