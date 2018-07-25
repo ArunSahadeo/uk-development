@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-	"postinstall": "npm install --dev && npm install --production",
     "heroku-prebuild": "cp assets/js/config.sample.js assets/js/config.js",
-    "heroku-postbuild": "webpack"
+    "heroku-postbuild": "webpack -p"
   },
   "keywords": [
     "Leaflet maps"
