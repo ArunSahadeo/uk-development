@@ -36,6 +36,10 @@ var companyLookupModule = function () {
 
 	self.checkOpenSourceCredentials = function (params) {
 
+        if (!Config.githubAPIToken || !Config.githubAPIToken.match(/^[0-9a-zA-Z]+$/)) {
+            return;
+        }
+
 		if (localStorage.getItem('company-' + params.index + '-does-os')) {
 			let isOS = localStorage.getItem('company-' + params.index + '-does-os');
 			EventBus.publish('is-open-source', isOS);
