@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "echo \"Success\"",
+	"postinstall": "npm install --dev && npm install --production",
     "heroku-prebuild": "cp assets/js/config.sample.js assets/js/config.js",
     "heroku-postbuild": "webpack"
   },
